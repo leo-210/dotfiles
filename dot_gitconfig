@@ -1,0 +1,13 @@
+[user]
+  email = leo.kosman@proton.me
+	name = Léo-21
+[init]
+	defaultBranch = main
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[http]
+	sslBackend = openssl

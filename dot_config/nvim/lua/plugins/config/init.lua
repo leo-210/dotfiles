@@ -1,0 +1,6 @@
+require("plugins.config.onedark")
+require("plugins.config.lualine")
+require("plugins.config.vimtex")
+require("plugins.config.ultisnips")
+require("plugins.config.nvim_tree")
+require("plugins.config.telescope")

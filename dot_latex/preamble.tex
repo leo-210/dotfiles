@@ -1,0 +1,150 @@
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage[margin=0.8in]{geometry}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+
+\usepackage{tikz}
+\usepackage{tkz-tab}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+
+% theorems
+\makeatother
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{LimeGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=LimeGreen, backgroundcolor=LimeGreen!5,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{LimeGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=LimeGreen
+    }
+]{thmgreenline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{DarkGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=DarkGreen, backgroundcolor=DarkGreen!5,
+    }
+]{thmdarkgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{DarkGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=DarkGreen
+    }
+]{thmdarkgreenline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RoyalBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RoyalBlue, backgroundcolor=RoyalBlue!5,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RoyalBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RoyalBlue
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{FireBrick!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=FireBrick, backgroundcolor=FireBrick!5,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{FireBrick!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=FireBrick, backgroundcolor=FireBrick!1,
+    },
+    qed=QED
+]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{LimeGreen!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=LimeGreen, backgroundcolor=LimeGreen!1,
+    }
+]{thmsolutionbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RoyalBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RoyalBlue, backgroundcolor=RoyalBlue!1,
+    },
+]{thmexplanationbox}
+
+
+\declaretheorem[style=thmbluebox, name=Définition]{definition}
+\declaretheorem[style=thmgreenbox, numbered=no, name=Example]{example}
+\declaretheorem[style=thmredbox, name=Proposition, numberlike=definition]{proposition}
+\declaretheorem[style=thmredbox, name=Théoreme, numberlike=definition]{theorem}
+\declaretheorem[style=thmredbox, name=Lemme, numberlike=definition]{lemma}
+
+\declaretheorem[style=thmproofbox, name=Démonstration]{replacementproof}
+\renewenvironment{proof}{\vspace{-12pt}\begin{replacementproof}}{\end{replacementproof}}
+
+\declaretheorem[style=thmdarkgreenline, name=Solution, numbered=no]{solution_}
+\newenvironment{solution}{\vspace{-12pt}\begin{solution_}}{\end{solution_}}
+
+\declaretheorem[style=thmgreenline, numbered=no, name=Remarque]{remark}
+\declaretheorem[style=thmgreenline, numbered=no, name=Note]{note}
+
+\declaretheorem[style=thmbluebox, numbered=no, name=Notation]{notation}
+\declaretheorem[style=thmgreenbox, numbered=no, name=Méthode]{method}
+\declaretheorem[style=thmgreenbox, numbered=no, name=Rappel]{rappel}
+\declaretheorem[style=thmdarkgreenbox, name=Exercice]{exercise}
+
+
+\renewcommand{\emptyset}{\text{Ø}}
+
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
