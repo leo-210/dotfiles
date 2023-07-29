@@ -2,6 +2,7 @@ map r reload
 map R rotate
 map i recolor
 
+set guioptions ""
 
 # Colors (Onedark)
 
