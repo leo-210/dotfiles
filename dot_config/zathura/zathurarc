@@ -1,1 +1,26 @@
+include "./colors"
+
+map r reload
+map R rotate
+map i recolor
+
+
+# Colors (Onedark)
+
+set recolor-keephue
+set recolor
+
+set default-fg "#ABB2BF"
+set default-bg "#282C34"
+
+set statusbar-fg "#ABB2BF"
+set statusbar-bg "#282C34"
+
+set inputbar-fg "#ABB2BF"
+set inputbar-bg "#282C34"
+
+set recolor-lightcolor "#282C34"
+set recolor-darkcolor "#ABB2BF"
+
 set highlight-transparency 0
+
