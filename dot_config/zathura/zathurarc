@@ -1,5 +1,3 @@
-include "./colors"
-
 map r reload
 map R rotate
 map i recolor
