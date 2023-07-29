@@ -15,9 +15,8 @@ endglobal
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
 
-% On windows, use %APPDATA%, idk on MacOS.
 % If you don't have any preamble.tex, remove this line
-\input{%HOME%/.latex/preamble.tex}
+\input{~/.latex/preamble.tex}
 
 \begin{document}
 	$0
@@ -315,6 +314,12 @@ snippet compl "complement" iA
 endsnippet
 
 context "math()"
+snippet abs "absolute value" iA
+\left\lvert ${1:${VISUAL}} \right\rvert $0
+endsnippet
+
+
+context "math()"
 snippet \\\ "setminus" iA
 \setminus
 endsnippet
@@ -599,7 +604,7 @@ snippet @z "zeta" iA
 endsnippet
 
 snippet @t "theta" iA
-\theta
+\theta 
 endsnippet
 
 snippet @T "Theta" iA
