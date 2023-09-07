@@ -14,6 +14,10 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.9}
 
+\usepackage{hyperref}
+\hypersetup{
+    hidelinks,
+}
 
 % theorems
 \makeatother
@@ -88,6 +92,18 @@
 ]{thmredbox}
 
 \declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{FireBrick!70!black},
+    notefont=\bfseries\sffamily\color{FireBrick!70!black}, bodyfont=\normalfont,
+    notebraces={}{},
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=FireBrick, backgroundcolor=FireBrick!5,
+    }
+]{namedthmredbox}
+
+\declaretheoremstyle[
     headfont=\bfseries\sffamily\color{FireBrick!70!black}, bodyfont=\normalfont,
     numbered=no,
     mdframed={
@@ -123,6 +139,7 @@
 \declaretheorem[style=thmgreenbox, numbered=no, name=Example]{example}
 \declaretheorem[style=thmredbox, name=Proposition, numberlike=definition]{proposition}
 \declaretheorem[style=thmredbox, name=Théorème, numberlike=definition]{theorem}
+\declaretheorem[style=namedthmredbox, name=]{namedtheorem}
 \declaretheorem[style=thmredbox, name=Lemme, numberlike=definition]{lemma}
 
 \declaretheorem[style=thmproofbox, name=Démonstration]{replacementproof}
@@ -148,3 +165,6 @@
 \newcommand{\D}{\ensuremath{\mathbb{D}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
+
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
