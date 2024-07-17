@@ -1,0 +1,11 @@
+/* @theme "~/.config/rofi/catpuccin/launcher.rasi" */
+@theme "~/.config/rofi/dracula/config.rasi"
+
+configuration {
+  modes: [window,run,drun,calc];
+  /*fixed-num-lines: false; */
+}
+
+window {
+  height: 12em;
+}

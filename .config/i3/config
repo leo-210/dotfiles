@@ -1,0 +1,279 @@
+#################
+### VARIABLES ###
+#################
+
+# Set your terminal here
+set $term alacritty
+set $file_explorer thunar
+set $web_browser firefox
+
+# Change these keys to your liking
+# For the directions, arrow keys are also available
+set $mod Mod4
+
+set $left j
+set $right l
+set $up i
+set $down k
+
+
+########################
+### GAPS AND BORDERS ###
+########################
+
+default_border pixel 3
+default_floating_border pixel 3
+
+gaps inner 10
+gaps outer 5
+gaps top 48
+gaps bottom 5
+smart_gaps off
+
+
+#########################
+### AUTOSTARTING APPS ###
+#########################
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xrdb -merge ~/.Xresources
+
+# Compositor
+exec --no-startup-id picom -b
+# Wallpapers
+exec --no-startup-id nitrogen --restore
+# Notification deamon
+exec --no-startup-id dunst
+# Status bar
+exec --no-startup-id polybar -r
+# Set the keyboard layout
+# TODO: set the keyboard layout in another way, to set to bépo for example
+exec --no-startup-id setxkbmap fr
+# To send notifications on low battery, and other stuff
+exec --no-startup-id xfce4-power-manager
+
+###################
+### KEYBINDINGS ###
+###################
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Brightness controls, needs 'brightnessctl'
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+exec --no-startup-id brightnessctl set 70%
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start apps
+bindsym $mod+Return exec $term
+bindsym $mod+e exec $file_explorer
+bindsym $mod+s exec $web_browser
+
+# Rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun -config "~/.config/rofi/config_big.rasi"
+bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+Shift+d exec --no-startup-id rofi -show combi -modes combi -combi-modes "window#drun#run" \
+        -config "~/.config/rofi/config_big.rasi"
+bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu
+bindsym $mod+Shift+s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
+        rofi-screenshot
+bindsym $mod+Control+s exec --no-startup-id rofi-screenshot -s
+
+bindsym $mod+r mode "rofi"
+mode "rofi" {
+    bindsym d exec --no-startup-id rofi -show drun -config "~/.config/rofi/config_big.rasi"; mode "default"
+    bindsym $mod+d exec --no-startup-id rofi -show drun -config "~/.config/rofi/config_big.rasi"; mode "default"
+
+    bindsym w exec --no-startup-id rofi -show window; mode "default"
+    bindsym $mod+w exec --no-startup-id rofi -show window; mode "default"
+
+    bindsym Shift+d exec --no-startup-id rofi -show combi -modes combi -combi-modes "window#drun#run" \
+            -config "~/.config/rofi/config_big.rasi"; mode "default"
+    bindsym $mod+Shift+d exec --no-startup-id rofi -show combi -modes combi -combi-modes "window#drun#run" \
+            -config "~/.config/rofi/config_big.rasi"; mode "default"
+
+    bindsym p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu; mode "default"
+    bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu; mode "default"
+
+    bindsym e exec --no-startup-id rofi -show emoji; mode "default"
+    bindsym $mod+e exec --no-startup-id rofi -show emoji; mode "default"
+
+    bindsym c exec --no-startup-id rofi -show calc; mode "default"
+    bindsym $mod+c exec --no-startup-id rofi -show calc; mode "default"
+
+    bindsym s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
+            rofi-screenshot; mode "default"
+    bindsym Shift+s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
+            rofi-screenshot; mode "default"
+    bindsym $mod+s s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
+            rofi-screenshot; mode "default"
+    bindsym $mod+Shift+s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
+            rofi-screenshot; mode "default"
+
+    bindsym Control+s exec --no-startup-id rofi-screenshot -s; mode "default"
+    bindsym $mod+Control+s exec --no-startup-id rofi-screenshot -s; mode "default"
+
+    # Quit "rofi" mode
+    bindsym $mod+r mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# Change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Grow/shrink windows
+bindsym $mod+Control+$left resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+$down resize grow height 2 px or 2 ppt
+bindsym $mod+Control+$up resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+$right resize grow width 2 px or 2 ppt
+
+# Arrow keys
+bindsym $mod+Control+Left resize shrink width 2 px or 2 ppt
+bindsym $mod+Control+Down resize grow height 2 px or 2 ppt
+bindsym $mod+Control+Up resize shrink height 2 px or 2 ppt
+bindsym $mod+Control+Right resize grow width 2 px or 2 ppt
+
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+t floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+###################
+### COLOR THEME ###
+###################
+
+set $bg #282a36
+set $selection #44475a
+set $fg #f8f8f2
+set $comment #6272a4
+set $cyan #8be9fd
+set $green #50fa7b
+set $orange #ffb86c
+set $pink #ff79c6
+set $purple #bd93f9
+set $red #ff5555
+set $yellow #f1fa8c
+
+# class                 border  bg      fg  indicator  child border
+client.focused          $purple $purple $fg $comment   $purple
+client.focused_inactive $bg     $bg     $fg $comment   $bg
+client.unfocused        $bg     $bg     $fg $comment   $bg
+client.urgent           $orange $bg     $fg $comment   $orange
+
+client.background       #00000000
+
+
+##############
+### i3 BAR ###
+##############
+
+# Disabling the bar for polybar
+# See config at '~/.config/polybar/config.ini'
+bar {
+    mode invisible
+}
+
+
+#############
+### OTHER ###
+#############
+
+font pango:Monospace 8
