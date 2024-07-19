@@ -59,6 +59,11 @@ exec --no-startup-id setxkbmap fr
 # To send notifications on low battery, and other stuff
 exec --no-startup-id xfce4-power-manager
 
+# Autotiling script
+# See https://github.com/nwg-piotr/autotiling
+exec_always ~/.config/i3/autotiling
+
+
 ###################
 ### KEYBINDINGS ###
 ###################

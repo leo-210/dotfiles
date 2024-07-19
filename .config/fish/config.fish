@@ -14,3 +14,4 @@ thefuck --alias | source
 source /home/leo/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 fish_add_path /home/leo/.spicetify
+abbr --add dotfiles "/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
