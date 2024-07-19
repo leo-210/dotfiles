@@ -2,7 +2,7 @@
 ### VARIABLES ###
 #################
 
-# Set your terminal here
+# Set your main apps here
 set $term alacritty
 set $file_explorer thunar
 set $web_browser firefox
