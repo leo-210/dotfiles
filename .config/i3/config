@@ -40,7 +40,7 @@ smart_gaps off
 exec --no-startup-id dex --autostart --environment i3
 
 # Screen locker
-exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/lockscreen.sh"
+exec --no-startup-id xautolock -time 5 -locker "fish /home/leo/.config/i3/lockscreen.sh"
 #exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Compositor
