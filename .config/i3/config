@@ -40,7 +40,7 @@ smart_gaps off
 exec --no-startup-id dex --autostart --environment i3
 
 # Screen locker
-exec --no-startup-id xautolock -time 5 -locker "fish /home/leo/.config/i3/lockscreen.sh"
+exec --no-startup-id xautolock -time 5 -corners -000 -locker "fish /home/leo/.config/i3/lockscreen.sh"
 #exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Compositor
@@ -256,10 +256,10 @@ set $red #ff5555
 set $yellow #f1fa8c
 
 # class                 border  bg      fg  indicator  child border
-client.focused          $purple $purple $fg $comment   $purple
-client.focused_inactive $bg     $bg     $fg $comment   $bg
-client.unfocused        $bg     $bg     $fg $comment   $bg
-client.urgent           $orange $bg     $fg $comment   $orange
+client.focused          $purple $purple $fg $purple    $purple
+client.focused_inactive $bg     $bg     $fg $bg        $bg
+client.unfocused        $bg     $bg     $fg $bg        $bg
+client.urgent           $orange $bg     $fg $orange    $orange
 
 client.background       #00000000
 
