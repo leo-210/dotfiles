@@ -15,12 +15,10 @@ return {
         vim.keymap.set("n", "<leader>fc", api.tree.close_in_this_tab)
 
         local wk = require("which-key")
-        wk.register({
-            f = {
-                name = "File",
-                t = "File tree",
-                c = "Close file tree"
-            },
-        }, { prefix = "<leader>" })
+        wk.add({
+            { "<leader>f", group = "File" },
+            { "<leader>t", desc = "File tree" },
+            { "<leader>c", desc = "Close file tree" }
+        })
     end
 }

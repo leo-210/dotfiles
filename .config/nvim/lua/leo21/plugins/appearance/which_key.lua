@@ -1,5 +1,15 @@
 return {
     "folke/which-key.nvim",
+    dependencies = {
+        {
+            'echasnovski/mini.icons',
+            version = '*',
+            config = function ()
+                require('mini.icons').setup()
+            end
+        },
+        'nvim-tree/nvim-web-devicons'
+    },
     event = "VeryLazy",
     init = function()
         vim.o.timeout = true
@@ -7,11 +17,7 @@ return {
     end,
     config = function ()
         local wk = require("which-key")
-        wk.register({
-            g = {
-                name = "Git"
-            }
-        }, { prefix = "<leader>" })
+        wk.add({ "<leader>g", group = "Git" })
     end
 }
 

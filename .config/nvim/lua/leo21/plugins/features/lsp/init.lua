@@ -36,6 +36,8 @@ return {
                     },
                 },
             }
+            lspconfig.ocamllsp.setup({})
+
         end,
     },
     {

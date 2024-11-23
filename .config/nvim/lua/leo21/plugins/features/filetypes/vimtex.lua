@@ -35,55 +35,51 @@ return {
     end,
     config = function ()
         local wk = require("which-key")
-        wk.register({
-            l = {
-                name = "Latex",
-                i = "Info",
-                I = "Full info",
-                t = "Open toc",
-                T = "Toggle toc",
-                q = "Log",
-                v = "View",
-                r = "Reverse search",
-                l = "Compile",
-                L = "Compile selected",
-                k = "Stop",
-                K = "Stop all",
-                e = "Error",
-                o = "Output",
-                g = "Status",
-                G = "Status all",
-                c = "Clean",
-                C = "Clean full",
-                m = "Imaps list",
-                x = "Reload",
-                X = "Reload state",
-                s = "Toggle main",
-                a = "Context menu",
-            },
-        }, { prefix = "<localleader>" })
+        wk.add(
+            {
+                { "<localleader>l", group = "Latex" },
+                { "<localleader>lC", desc = "Clean full" },
+                { "<localleader>lG", desc = "Status all" },
+                { "<localleader>lI", desc = "Full info" },
+                { "<localleader>lK", desc = "Stop all" },
+                { "<localleader>lL", desc = "Compile selected" },
+                { "<localleader>lT", desc = "Toggle toc" },
+                { "<localleader>lX", desc = "Reload state" },
+                { "<localleader>la", desc = "Context menu" },
+                { "<localleader>lc", desc = "Clean" },
+                { "<localleader>le", desc = "Error" },
+                { "<localleader>lg", desc = "Status" },
+                { "<localleader>li", desc = "Info" },
+                { "<localleader>lk", desc = "Stop" },
+                { "<localleader>ll", desc = "Compile" },
+                { "<localleader>lm", desc = "Imaps list" },
+                { "<localleader>lo", desc = "Output" },
+                { "<localleader>lq", desc = "Log" },
+                { "<localleader>lr", desc = "Reverse search" },
+                { "<localleader>ls", desc = "Toggle main" },
+                { "<localleader>lt", desc = "Open toc" },
+                { "<localleader>lv", desc = "View" },
+                { "<localleader>lx", desc = "Reload" },
+            }
+        )
 
-        wk.register({
-            d = {
-                name = "Delete",
-                se = "Env",
-                sc = "Cmd",
-                ["s$"] = "Math",
-            },
-            c = {
-                name = "Change",
-                se = "Env",
-                sc = "Cmd",
-                ["s$"] = "Math",
-            },
-            t = {
-                name = "Toggle",
-                sf = "Cmd Frac",
-                sc = "Cmd Star",
-                se = "Env Star",
-                ["s$"] = "Env math",
-                sd = "Delim",
-                sD = "Delim reverse",
+        wk.add({
+            {
+                { "c", group = "Change" },
+                { "cs$", desc = "Math" },
+                { "csc", desc = "Cmd" },
+                { "cse", desc = "Env" },
+                { "d", group = "Delete" },
+                { "ds$", desc = "Math" },
+                { "dsc", desc = "Cmd" },
+                { "dse", desc = "Env" },
+                { "t", group = "Toggle" },
+                { "ts$", desc = "Env math" },
+                { "tsD", desc = "Delim reverse" },
+                { "tsc", desc = "Cmd Star" },
+                { "tsd", desc = "Delim" },
+                { "tse", desc = "Env Star" },
+                { "tsf", desc = "Cmd Frac" },
             }
         })
   end
