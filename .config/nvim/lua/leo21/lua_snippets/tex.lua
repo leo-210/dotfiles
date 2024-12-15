@@ -19,15 +19,20 @@ local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
+local function in_mathzone()
+  return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
+end
+
 local function copy (args)
     return args[1]
 end
 
 ls.add_snippets("tex", {
     s({
-        trig = "env",
+        trig = "begin",
         name = "env",
         wordTrig = true,
+        snippetType = "autosnippet"
     }, {
         t("\\begin{"),
         i(1, "env"),
@@ -44,5 +49,98 @@ ls.add_snippets("tex", {
         t("}")
     }, {
         condition = conds_expand.line_begin,
+    }),
+    s({
+        trig = "dm",
+        name = "display math",
+        snippetType = "autosnippet",
+        wordTrig = true,
+        hidden = false
+    }, {
+        t({"\\[", "    "}), i(1), t({"", "\\]"})
+    }, {
+        condition = function ()
+            return not in_mathzone()
+        end,
+    }),
+    s({
+        trig = "frac",
+        name = "frac",
+        snippetType = "autosnippet",
+        hidden = true,
+    }, {
+        t("\\frac{"),
+        i(1),
+        t("} {"),
+        i(2),
+        t("} ")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "__",
+        name = "subscript",
+        snippetType = "autosnippet",
+        wordTrig = true,
+        hidden = true
+    }, {
+        t("_{"), i(1), t("} ")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "(%a)(%d)",
+        name = "auto subscript",
+        snippetType = "autosnippet",
+        wordTrig = true,
+        trigEngine = "pattern",
+        hidden = true,
+    }, {
+        f(function (_, snip)
+            return snip.captures[1] .. "_" .. snip.captures[2]
+        end, {})
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "(%a)([_%^])(%d[%a%d])",
+        name = "auto super/subscript 2",
+        snippetType = "autosnippet",
+        wordTrig = true,
+        trigEngine = "pattern",
+        hidden = true,
+    }, {
+        f(function (_, snip)
+            return snip.captures[1] .. snip.captures[2] .. "{" .. snip.captures[3] .. "} "
+        end, {})
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "^^",
+        name = "superscript",
+        snippetType = "autosnippet",
+        wordTrig = true,
+        hidden = false
+    }, {
+        t("^{"), i(1), t("} ")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "([^%/%s%)][^%/%s]*)%/",
+        name = "auto frac",
+        snippetType = "autosnippet",
+        wordTrig = false,
+        trigEngine = "pattern",
+        hidden = true
+    }, {
+        f(function (_, snip)
+            return "\\frac {" .. snip.captures[1] .. "} {"
+        end, {}),
+        i(1),
+        t("} ")
+    }, {
+        condition = in_mathzone
     }),
 })
