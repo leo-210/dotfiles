@@ -64,7 +64,37 @@ ls.add_snippets("tex", {
         end,
     }),
     s({
+        trig = "\\frac",
+        name = "frac",
+        trigEngine = "pattern",
+        snippetType = "autosnippet",
+        hidden = true,
+    }, {
+        t("\\frac{"),
+        i(1),
+        t("} {"),
+        i(2),
+        t("} ")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
         trig = "frac",
+        name = "frac",
+        trigEngine = "pattern",
+        snippetType = "autosnippet",
+        hidden = true,
+    }, {
+        t("\\frac{"),
+        i(1),
+        t("} {"),
+        i(2),
+        t("} ")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "//",
         name = "frac",
         snippetType = "autosnippet",
         hidden = true,
@@ -142,5 +172,34 @@ ls.add_snippets("tex", {
         t("} ")
     }, {
         condition = in_mathzone
+    }),
+
+    s({
+        trig = "fn",
+        name = "function",
+        snippetType = "snippet",
+        wordTrig = true,
+    }, {
+        i(1, "f"), t(" : "), i(2, "x"), t(" \\mapsto "), i(3, "x")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "fdef",
+        name = "function def",
+        snippetType = "snippet",
+        wordTrig = true,
+    }, {
+        i(1, "f"), t(" : "), i(2, "\\mathbb{R}"), t(" \\to "), i(3, "\\mathbb{R}")
+    }, {
+        condition = in_mathzone,
+    }),
+    s({
+        trig = "tend",
+        name = "tend vers",
+        snippetType = "snippet",
+        wordTrig = true,
+    }, {
+        condition = in_mathzone,
     }),
 })
