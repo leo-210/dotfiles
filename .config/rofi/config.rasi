@@ -2,7 +2,7 @@
 @theme "~/.config/rofi/dracula/config.rasi"
 
 configuration {
-  modes: [window,run,drun,calc];
+  modes: [window,run,drun];
   /*fixed-num-lines: false; */
 }
 
