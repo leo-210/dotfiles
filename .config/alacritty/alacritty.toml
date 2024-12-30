@@ -1,21 +1,21 @@
 
 [terminal.shell]
-program = "/usr/bin/fish"
+program = "fish"
 args =[
     "-c",
-    "fastfetch --logo-type small && fish"
+    "fish"
 ]
 
 [font]
-size = 8
-normal = { family = "JetBrainsMono Nerd Font", style="Regular" }
+size = 11
+normal = { family = "FiraCode Nerd Font", style="Regular" }
 
 [window]
 padding = { x = 4, y = 2 }
 
 [general]
 import = [
-  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+    #"~/.config/alacritty/themes/catppuccin-mocha.toml"
   "~/.config/alacritty/themes/dracula.toml"
 ]
 
