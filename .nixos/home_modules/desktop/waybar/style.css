@@ -32,7 +32,7 @@ window#waybar {
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background: inherit;
+    background: @bg-secondary;
     border: inherit;
 }
 
