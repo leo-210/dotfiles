@@ -92,7 +92,7 @@ bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-
 #bindsym $mod+Shift+s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
 #        rofi-screenshot
 # TODO: custom rofi script for screenshots
-bindsym $mod+Shift+s exec grimshot copy area
+bindsym $mod+Shift+s exec grimshot copy anything
 bindsym $mod+Control+s exec --no-startup-id rofi-screenshot -s
 
 bindsym $mod+r mode "rofi"
@@ -232,7 +232,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -B 'Yes, exit i3' 'swaymsg exit'"
 
 
 ###################
@@ -266,9 +266,8 @@ client.background       #00000000
 
 bar {
     swaybar_command waybar
-    position top
+    modifier none
     mode dock
-    modifier $mod
 }
 
 bindsym $mod+b bar mode toggle
