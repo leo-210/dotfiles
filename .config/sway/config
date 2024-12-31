@@ -30,6 +30,13 @@ gaps outer -5px
 smart_gaps on
 
 
+#################
+### WALLPAPER ###
+#################
+
+output * bg #21222C solid_color
+
+
 #########################
 ### AUTOSTARTING APPS ###
 #########################
@@ -38,8 +45,6 @@ smart_gaps on
 #exec --no-startup-id xautolock -time 5 -corners -000 -locker "fish /home/leo/.config/i3/lockscreen.sh"
 #exec --no-startup-id xrdb -merge ~/.Xresources
 
-# Wallpapers
-#exec --no-startup-id nitrogen --restore
 # Notification deamon
 #exec --no-startup-id dunst
 # Status bar
