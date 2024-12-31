@@ -21,45 +21,35 @@ set $down k
 ### GAPS AND BORDERS ###
 ########################
 
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
 
-gaps inner 10
-gaps outer 5
-gaps top 48
-gaps bottom 5
-smart_gaps off
+gaps inner 5px
+gaps outer -5px
+
+smart_gaps on
 
 
 #########################
 ### AUTOSTARTING APPS ###
 #########################
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
 # Screen locker
-exec --no-startup-id xautolock -time 5 -corners -000 -locker "fish /home/leo/.config/i3/lockscreen.sh"
+#exec --no-startup-id xautolock -time 5 -corners -000 -locker "fish /home/leo/.config/i3/lockscreen.sh"
 #exec --no-startup-id xrdb -merge ~/.Xresources
 
-# Compositor
-exec --no-startup-id picom -b
 # Wallpapers
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
 # Notification deamon
-exec --no-startup-id dunst
+#exec --no-startup-id dunst
 # Status bar
-exec --no-startup-id polybar -r
-# Set the keyboard layout
-# TODO: set the keyboard layout in another way, to set to bépo for example
-exec --no-startup-id setxkbmap fr
+#exec --no-startup-id polybar -r
+
 # To send notifications on low battery, and other stuff
-exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id xfce4-power-manager
 
 # Autotiling script
-# See https://github.com/nwg-piotr/autotiling
-exec_always ~/.config/i3/autotiling
+exec_always autotiling
 
 
 ###################
@@ -67,11 +57,10 @@ exec_always ~/.config/i3/autotiling
 ###################
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Brightness controls, needs 'brightnessctl'
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
@@ -97,6 +86,7 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show combi -modes combi -combi-m
 bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu
 #bindsym $mod+Shift+s exec --no-startup-id ROFI_SCREENSHOT_DIR="/home/leo/images/screenshots" \
 #        rofi-screenshot
+# TODO: custom rofi script for screenshots
 bindsym $mod+Shift+s exec grimshot copy area
 bindsym $mod+Control+s exec --no-startup-id rofi-screenshot -s
 
@@ -256,14 +246,27 @@ set $purple #bd93f9
 set $red #ff5555
 set $yellow #f1fa8c
 
-# class                 border  bg      fg  indicator  child border
-client.focused          $purple $purple $fg $purple    $purple
-client.focused_inactive $bg     $bg     $fg $bg        $bg
-client.unfocused        $bg     $bg     $fg $bg        $bg
-client.urgent           $orange $bg     $fg $orange    $orange
+# class                 border   bg      fg  indicator  child border
+client.focused          $purple  $purple $fg $purple    $purple
+client.focused_inactive $comment $bg     $fg $comment   $comment
+client.unfocused        $comment $bg     $fg $comment   $comment
+client.urgent           $orange  $bg     $fg $orange    $orange
 
 client.background       #00000000
 
+
+###########
+### BAR ###
+###########
+
+bar {
+    swaybar_command waybar
+    position top
+    mode dock
+    modifier $mod
+}
+
+bindsym $mod+b bar mode toggle
 
 #############
 ### OTHER ###

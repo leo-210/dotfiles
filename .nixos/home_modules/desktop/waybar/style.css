@@ -1,0 +1,78 @@
+@define-color bg #282a36;
+@define-color bg-secondary #44475a;
+@define-color bg-select #6272a4;
+
+@define-color fg #f8f8f2;
+@define-color accent #bd93f9;
+
+@define-color red #ff5555;
+@define-color orange #ffb86c;
+@define-color green #50fa7b;
+
+
+* {
+    border: 0;
+    border-radius: 0;
+    font-family: FiraCode Nerd Font, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: @fg;
+}
+
+window#waybar {
+    background: @bg;
+    border: 2px solid @accent;
+}
+
+#workspaces button {
+    margin: 2px 0;
+    padding: 0 10px;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
+    border: inherit;
+}
+
+#workspaces button.focused {
+    background: @bg-secondary;
+}
+
+#clock, #battery, #cpu, #temperature, #memory, #network, #wireplumber {
+    padding: 0 10px;
+}
+
+#custom-separator {
+    padding: 0 10px;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @orange;
+}
+
+#battery.alert:not(.charging) {
+    color: @red;
+}
+
+@keyframes blink {
+    to {
+        background-color: @red;
+    }
+}
+
+#battery.critical:not(.charging) {
+    margin: 2px 2px 2px 0;
+    background: @bg;
+    color: @fg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
