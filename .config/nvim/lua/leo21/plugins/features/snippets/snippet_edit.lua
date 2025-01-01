@@ -40,7 +40,7 @@ vim.api.nvim_create_user_command("SnippetEdit", function ()
             print(e)
             return
         end
-        f:write('\nrequire("leo21.lua.lua_snippets.' .. filetype .. '")')
+        f:write('\nrequire("leo21.lua_snippets.' .. filetype .. '")')
         f:close()
     end
 
