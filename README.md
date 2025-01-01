@@ -20,7 +20,7 @@ Then follow those steps in your home directory:
   ```
 - Clone the branch you want into a bare repository :
   ```git
-  git clone --bare -branch <the branch you chose> --single-branch $HOME/.dotfiles
+  git clone --bare --branch <the branch you chose> --single-branch $HOME/.dotfiles
   ```
 - Using the alias you created, checkout the content of the repository :
   ```git
