@@ -6,7 +6,11 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = function ()
-        require("nvim-tree").setup()
+        require("nvim-tree").setup({
+            actions = {
+                open_file = { quit_on_open = true },
+            },
+        })
         local api = require("nvim-tree.api")
 
         vim.keymap.set("n", "<leader>ft", function ()
