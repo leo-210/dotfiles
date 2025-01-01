@@ -15,10 +15,6 @@
   };
 
   home.packages = with pkgs; [
-    gcc
-    python3Full
-    cargo
-
     zip
     unzip
     wget
