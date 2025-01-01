@@ -30,7 +30,7 @@ ls.add_snippets("ocaml", {
         snippetType = "autosnippet",
         wordTrig = true,
     }, {
-        t("(*"), i(1), t("*)", ""), i(0)
+        t("(* "), i(1), t(" *)"), i(0)
     }, {
         condition = function () return true end,
     }),
