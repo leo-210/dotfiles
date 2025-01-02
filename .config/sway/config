@@ -46,7 +46,7 @@ output * bg #21222C solid_color
 #exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Notification deamon
-#exec --no-startup-id dunst
+exec mako
 # Status bar
 #exec --no-startup-id polybar -r
 
