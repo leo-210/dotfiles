@@ -1,3 +1,3 @@
 { ... }:
 
-{ imports = [ ./services/all.nix ./sway.nix ]; }
+{ imports = [ ./services/all.nix ./sway.nix ./steam.nix ]; }

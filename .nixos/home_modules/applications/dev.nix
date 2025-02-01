@@ -4,8 +4,8 @@
     home.packages = with pkgs; [
         gcc
     
-        python3Full
-        
+        python312Full
+
         cargo
         
         ocaml
