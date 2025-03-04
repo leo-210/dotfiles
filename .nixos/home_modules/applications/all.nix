@@ -5,6 +5,7 @@
     ./tools.nix
     ./dev.nix
     ./temp.nix
+    ./nvim.nix
     ./gui/alacritty.nix
     ./gui/firefox.nix
     ./gui/discord.nix
