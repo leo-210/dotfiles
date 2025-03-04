@@ -11,6 +11,10 @@
     ./gui/keepassxc.nix
     ./gui/spotify.nix
     ./gui/musescore.nix
+    ./gui/audacity.nix
+    ./gui/reaper.nix
+    ./gui/qjackctl.nix
+    ./gui/guitarix.nix
     ./games/heroic.nix
   ];
 }

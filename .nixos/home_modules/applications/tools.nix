@@ -18,9 +18,12 @@
     zip
     unzip
     wget
+    gnumake
 
     ripgrep
     fd
+    usbutils
+    pciutils
 
     wl-clipboard
     fastfetch

@@ -10,5 +10,7 @@
     jack.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ alsa-utils pulseaudio ]; 
+  environment.systemPackages = with pkgs; [ alsa-utils pulseaudio pavucontrol ]; 
+
+  users.extraUsers.leo.extraGroups = [ "jackaudio" ];
 }
