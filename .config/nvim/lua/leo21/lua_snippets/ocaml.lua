@@ -27,11 +27,34 @@ ls.add_snippets("ocaml", {
     s({
         trig = "(*",
         name = "comment",
-        snippetType = "autosnippet",
+        --snippetType = "autosnippet",
         wordTrig = true,
     }, {
         t("(* "), i(1), t(" *)"), i(0)
     }, {
         condition = function () return true end,
     }),
+
+    s({
+        trig = "match",
+        name = "match",
+        wordTrig = true,
+    }, {
+        t("match "), i(1), t(" with "), i(0)
+    }, {
+        condition = function () return true end
+    }),
+
+    s({
+        trig = "try",
+        name = "try",
+        snippetType = "snippet",
+        wordTrig = true,
+    }, {
+        t("try "), i(1), t(" with "), i(0)
+    }, {
+        condition = function () return true end,
+    }),
 })
+
+
