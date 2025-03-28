@@ -16,6 +16,7 @@
     ./gui/reaper.nix
     ./gui/qjackctl.nix
     ./gui/guitarix.nix
+    ./gui/zathura.nix
     ./games/heroic.nix
   ];
 }

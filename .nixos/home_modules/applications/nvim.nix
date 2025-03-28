@@ -8,6 +8,10 @@
             clang-tools
             lua-language-server
             nil
+            tree-sitter
+            luajit
+            luajitPackages.jsregexp
+            nodejs_23
         ];
     };
 }

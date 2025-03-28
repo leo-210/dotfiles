@@ -5,6 +5,7 @@
     enable = true;
     userName = "Léo-21";
     userEmail = "leo.kosman@proton.me";
+    extraConfig.init.defaultBranch = "main";
   };
 
   programs.zoxide = {
@@ -27,5 +28,7 @@
 
     wl-clipboard
     fastfetch
+
+    texliveFull
   ];
 }

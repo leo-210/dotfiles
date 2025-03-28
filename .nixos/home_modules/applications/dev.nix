@@ -10,5 +10,6 @@
         
         ocaml
         ocamlPackages.utop
+        dune_3
     ];
 }
