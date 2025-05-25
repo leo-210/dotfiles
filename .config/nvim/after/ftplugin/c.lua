@@ -5,7 +5,7 @@ vim.keymap.set(
         vim.cmd("term make")
         vim.cmd("startinsert")
     end,
-    { desc = "Make command" }
+    { desc = "make" }
 )
 vim.keymap.set(
     "n", "<leader>rt",
@@ -14,5 +14,5 @@ vim.keymap.set(
         vim.cmd("term make test")
         vim.cmd("startinsert")
     end,
-    { desc = "Make tests" }
+    { desc = "make test" }
 )

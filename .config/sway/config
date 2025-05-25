@@ -5,7 +5,7 @@
 # Set your main apps here
 set $term alacritty
 set $file_explorer thunar
-set $web_browser firefox
+set $web_browser librewolf
 
 # Change these keys to your liking
 # For the directions, arrow keys are also available

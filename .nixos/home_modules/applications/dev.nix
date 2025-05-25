@@ -11,5 +11,7 @@
         ocaml
         ocamlPackages.utop
         dune_3
+
+        nodejs_23
     ];
 }

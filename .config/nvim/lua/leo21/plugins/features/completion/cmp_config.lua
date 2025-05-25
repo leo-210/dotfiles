@@ -2,6 +2,8 @@ return function ()
     local cmp = require('cmp')
     local luasnip = require("luasnip")
 
+    vim.opt.pumheight = 10
+
     cmp.setup({
         sources = {
             { name = 'nvim_lsp' },

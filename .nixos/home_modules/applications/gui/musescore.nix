@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [ musescore ]; 
+    
+    home.packages = [
+        pkgs.musescore
+    ]; 
 }
