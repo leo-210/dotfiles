@@ -21,7 +21,9 @@
     ./gui/shotcut.nix
     ./gui/godot.nix
     ./gui/jetbrains.nix
+    ./gui/protonvpn.nix
     ./gui/inkscape.nix
+    ./gui/obsidian.nix
     ./games/heroic.nix
     ./games/prism.nix
   ];

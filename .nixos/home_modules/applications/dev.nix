@@ -6,12 +6,14 @@
     
         python312Full
 
-        cargo
+        rustup
         
         ocaml
         ocamlPackages.utop
         dune_3
 
         nodejs_23
+
+        mariadb-client
     ];
 }

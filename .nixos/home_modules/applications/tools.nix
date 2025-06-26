@@ -30,5 +30,7 @@
     fastfetch
 
     texliveFull
+
+    typst
   ];
 }

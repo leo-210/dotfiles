@@ -1,3 +1,3 @@
 { ... }:
 
-{ imports = [ ./sound.nix ]; }
+{ imports = [ ./sound.nix ./mariadb.nix ]; }
